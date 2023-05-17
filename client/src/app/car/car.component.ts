@@ -17,6 +17,7 @@ export class CarComponent {
   hp!:number ;
 
   marque!:string ;
+  id_car!: CarModule;
 
 
   constructor(private carservice:CarServiceService){
@@ -42,6 +43,16 @@ export class CarComponent {
     console.log(mycar);
 
     this.carservice.saveCare(mycar).subscribe();
+
+  }
+  deleteMe(id_car: any){
+    console.log("click!!!!2");
+    this.carservice.deleteCar(0).subscribe();
+
+  }
+  updateMe(id_car: CarModule){
+    console.log("click!!!!3");
+    this.carservice.updateCar(id_car).subscribe();
 
   }
 

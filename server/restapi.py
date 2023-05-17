@@ -4,6 +4,7 @@ import json
 from flask_cors import CORS, cross_origin
 import mysql.connector
 
+
 app = Flask(__name__)
 cors = CORS(app)
 
@@ -15,6 +16,11 @@ mydb = mysql.connector.connect(
         )
    
 # les web methods 
+
+@app.route('/' , methods = ['GET'])
+def Home():
+    return 'Hello, Its Home Page !'
+
 
 @app.route('/savecar' , methods = ['POST'])
 def saveCar():

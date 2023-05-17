@@ -25,17 +25,24 @@ export class CarServiceService {
     console.log("car service" + car);
 
     return this.http.post(this.url+"/savecar" , car , this.httpOptions );
-
   }
+
+
   getAllcars():Observable<CarModule[]>{
 
      return  this.http.get<CarModule[]>(this.url+"/cars" ,this.httpOptions );
-
-
-
   }
 
-
+  getCar(id:number):Observable<CarModule>{
+    return this.http.get<CarModule>(this.url+"/car/"+id , this.httpOptions );
+  }
+  deleteCar(id:number):Observable<CarModule>{
+    return this.http.delete<CarModule>(this.url+"/deletecar/"+id , this.httpOptions );
+  }
+  updateCar(car:CarModule):Observable<CarModule>{
+    return this.http.put<CarModule>(this.url+"/updatecar" , car , this.httpOptions );
+  }
+    
 
 
 }
