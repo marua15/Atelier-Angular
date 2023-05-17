@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EtudiantComponent } from './etudiant/etudiant.component';
@@ -10,9 +9,13 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarComponent } from './car/car.component';
 import { CarsComponent } from './cars/cars.component';
+import { EditcarComponent } from './editcar/editcar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
+import {Component} from '@angular/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,16 +23,18 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     ProfComponent,
     CalculatorComponent,
     CarComponent,
-    CarsComponent
+    CarsComponent,
+    EditcarComponent
   ],
   imports: [
     BrowserModule,
-    MatSlideToggleModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

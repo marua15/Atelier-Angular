@@ -58,12 +58,43 @@ def getCars():
     return json.dumps(mylist)
 
 
+@app.route('/deletecar/<int:car_id>', methods=['DELETE'])
+def delete_car(car_id):
+    print(car_id)
+    myCursor = mydb.cursor()
+
+    req = "DELETE FROM car WHERE id_car = %s"
+    val = (car_id,)
+    myCursor.execute(req, val)
+    mydb.commit()
+    print(myCursor.rowcount, "record(s) deleted")
+
+    return jsonify({"message": "Car deleted"})
+
+
+
+
+@app.route('/editcar/<int:car_id>', methods=['PUT'])
+def edit_car(car_id):
+    
+    args = request.json
+    model = args.get('model')
+    hp = args.get('hp')
+    marque = args.get('marque')
+    print(car_id)
+    print(model)
+
+    myCursor = mydb.cursor()
+
+    req = "UPDATE car SET model = %s, hp = %s, marque = %s WHERE id = %s"
+    val = (model, hp, marque, car_id)
+    myCursor.execute(req, val)
+    mydb.commit()
+    print(myCursor.rowcount, "record(s) updated")
+
+    return "Car updated"
 
 
  
-
-
-
-
 if __name__ == '__main__':
    app.run(host="0.0.0.0", port="5000", debug=True)

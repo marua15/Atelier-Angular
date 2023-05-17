@@ -27,4 +27,11 @@ constructor(private myservice:CarServiceService){
 }
 
 
+deleteCar(carId: number) {
+  console.log("Delete car!");
+
+  this.myservice.deleteCar(carId).subscribe();
+}
+
+
 }

@@ -1,0 +1,13 @@
+<p>Car Editing</p> <br>
+<label>Id</label>
+<input type ="text" [(ngModel)]="id_car" /> <br>
+<label>Model</label>
+<input type ="text"  [(ngModel)]="model" /> <br>
+
+<label>HP</label>
+<input type ="number" [(ngModel)]="hp"/><br>
+
+<label>Marque</label>
+<input type ="text" [(ngModel)]="marque"/><br>
+
+<button [routerLink]="'/lisofcars'" (click)="editCar()">Edit</button>

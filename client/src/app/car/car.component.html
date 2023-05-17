@@ -1,19 +1,24 @@
-<nav>
-    
-</nav>
 
+<div class="d-flex justify-content-center">
+ <div class="form">
+    <div class="title">Welcome</div>
+    <div class="subtitle">Let's add a car</div>
+    <div class="input-container ic1">
+      <input id="model" class="input" type="text" [(ngModel)]="model"  placeholder=" " />
+      <div class="cut"></div>
+      <label class="placeholder">Model</label>
+    </div>
+    <div class="input-container ic2">
+      <input id="hp" class="input" type="number" [(ngModel)]="hp" placeholder=" " />
+      <div class="cut"></div>
+      <label  class="placeholder">HP</label>
+    </div>
+    <div class="input-container ic2">
+      <input id="marque" class="input" type="text" [(ngModel)]="marque" placeholder=" " />
+      <div class="cut cut-short"></div>
+      <label  class="placeholder">Marque></label>
+    </div>
+    <button (click)="saveMe()" class="submit">submit</button>
+  </div>
 
-<p>Car Creation</p> <br>
-
-<label>Model</label>
-<input type ="text"  [(ngModel)]="model" /> <br>
-
-<label>HP</label>
-<input type ="number" [(ngModel)]="hp"/><br>
-
-<label>Marque</label>
-<input type ="text" [(ngModel)]="marque"/><br>
-
-<button (click)="saveMe()" > Save</button>
-<button (click)="deleteMe(id_car)"> Delete</button>
-<button (click)="updateMe(id_car)"> Update</button>
+</div>

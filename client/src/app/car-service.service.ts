@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CarServiceService {
+  editCar(id_car: number) {
+    throw new Error('Method not implemented.');
+  }
 
   // url principal 
   url:string = "http://127.0.0.1:5000";
@@ -36,8 +39,9 @@ export class CarServiceService {
   getCar(id:number):Observable<CarModule>{
     return this.http.get<CarModule>(this.url+"/car/"+id , this.httpOptions );
   }
-  deleteCar(id:number):Observable<CarModule>{
-    return this.http.delete<CarModule>(this.url+"/deletecar/"+id , this.httpOptions );
+  deleteCar(carId: number) {
+    const url =`${this.url}/deletecar/${carId}`;
+    return this.http.delete(url, this.httpOptions);
   }
   updateCar(car:CarModule):Observable<CarModule>{
     return this.http.put<CarModule>(this.url+"/updatecar" , car , this.httpOptions );

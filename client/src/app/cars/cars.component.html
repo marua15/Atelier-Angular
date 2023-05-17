@@ -1,27 +1,75 @@
+<style>
+  .link-space {
+margin-left: 10px;
+  }
+</style>
 <p>List of cars </p>
 
 <table>
 
 
-    <th>
+  <th>
 id
-    </th>
-    <th>
-       model 
-    </th>
-    <th>
-        hp
-    </th>
-    <th>
-       marque 
-    </th>
+  </th>
+  <th>
+  model 
+  </th>
+  <th>
+      hp
+  </th>
+  <th>
+  marque 
+  </th>
+  <th>
+  actions 
+  </th>
 
 
 <tr  *ngFor="let car of cars">
-    <td>{{car.id_car}}</td>
-    <td>{{car.model}}</td>
-    <td>{{car.hp}}</td>
-    <td>{{car.marque}}</td>
+  <td>{{car.id_car}}</td>
+  <td>{{car.model}}</td>
+  <td>{{car.hp}}</td>
+  <td>{{car.marque}}</td>
+  <td><a [routerLink]="['/editcar', car.id_car]" >Edit     </a>
+      <span class="link-space"> </span>
+  <a  href="/lisofcars" (click)="deleteCar(car.id_car)" >supprimer</a></td>
+
 </tr>
 
 </table>
+
+
+<!-- <h1 class="mt-4">List of cars </h1>
+
+
+<div class="container pt-4 border ">
+<table class="table table-sm table-striped mt-4 ">
+  <thead class="thead thead-primary">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Model</th>
+      <th scope="col">Hors Power</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Edit</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let car of cars">
+      <th scope="row">{{car.id_car}}</th>
+      <td>{{car.model}}</td>
+      <td>{{car.hp}}</td>
+      <td>{{car.marque}}</td>
+      <td>
+        <button type="button" class="btn btn-danger rounded-circle btn-sm" (click)="deleteCar(car.id_car)"><i class="fa-solid fa-trash-can"></i>
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-secondary rounded-circle btn-sm"><i class="fa-regular fa-pen-to-square"></i>
+        </button>
+      </td>
+  </tr>
+  </tbody>
+</table>
+</div> -->
