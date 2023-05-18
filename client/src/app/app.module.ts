@@ -12,10 +12,15 @@ import { CarsComponent } from './cars/cars.component';
 import { EditcarComponent } from './editcar/editcar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {Component} from '@angular/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,17 +29,24 @@ import {MatButtonModule} from '@angular/material/button';
     CalculatorComponent,
     CarComponent,
     CarsComponent,
-    EditcarComponent
+    EditcarComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
+    MatFormFieldModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
     MatTableModule,
-    MatButtonModule
+    MatIconModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,19 +1,19 @@
 
 
 
-<h1> Page principal</h1>
 
-<nav id="navbar">
+<mat-toolbar color="primary">
+    <a mat-button routerLink="/">Home</a>
+    <a mat-button routerLink="/login">Login</a>
+    <a mat-button routerLink="/register">Register</a>
+    <a mat-button routerLink="/lisofcars">Cars</a>
+    <a mat-button routerLink="/addcar">Add car</a>
+</mat-toolbar>
 
-    <li >  <a routerLink="/">Home</a>  </li>
-    <li> <a routerLink="/addcar">Add car</a></li>
-    <li> <a routerLink="/lisofcars">Cars</a></li>
-    <li><a routerLink="/calculator">Calulator</a></li>
 
 
-</nav>
-
-<router-outlet></router-outlet>
+<router-outlet>
+</router-outlet>
 
 
 
