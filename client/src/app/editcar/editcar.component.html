@@ -1,13 +1,24 @@
-<p>Car Editing</p> <br>
-<label>Id</label>
-<input type ="text" [(ngModel)]="id_car" /> <br>
-<label>Model</label>
-<input type ="text"  [(ngModel)]="model" /> <br>
+<div class="container">
+    <h1 >Car Editing</h1>
+        <div class="form-group">
+            <label for="id_car">Id</label><br>
+            <input type="text" class="form-control" [(ngModel)]="id_car" disabled />
+        </div>
+        <div class="form-group">
+            <label for="model">Model</label><br>
+            <input type="text" class="form-control" [(ngModel)]="model" />
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label for="hp">HP</label><br>
+            <input type="number" class="form-control" [(ngModel)]="hp" />
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label for="marque">Marque</label><br>
+            <input type="text" class="form-control" [(ngModel)]="marque" />
+        </div>
+        <pre></pre>
+        <button mat-fab color="accent" [routerLink]="'/lisofcars'" (click)="editCar()">Edit</button>
+</div>
 
-<label>HP</label>
-<input type ="number" [(ngModel)]="hp"/><br>
-
-<label>Marque</label>
-<input type ="text" [(ngModel)]="marque"/><br>
-
-<button [routerLink]="'/lisofcars'" (click)="editCar()">Edit</button>

@@ -1,19 +1,15 @@
-<div style="margin-top: 64px; display: flex; justify-content: center; align-items: center; height: 100%;">
-    <form style="width: 300px;">
-        <mat-form-field>
-            <span>Enter your username</span>
-            <input matinput placeholder="Username" [(ngModel)]="username" name="username" required>
-        </mat-form-field>
-        <mat-form-field>
-            <span>Enter your password</span>
-            <input matinput placeholder="Password" [(ngModel)]="password" name="password" required>
-        </mat-form-field>
-        <mat-form-field>
-            <button mat-raised-button color="primary" (click)="login()">Login</button>
-        </mat-form-field>
-        <a mat-raised-button color="primary" routerLink="/register">
-            Don't have an account?
-            Register
-        </a>
-    </form>
+<div class="container">
+    <h1 >Login</h1>
+        <div class="form-group">
+            <label for="id_car">Username</label><br>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="username" required/> 
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label for="model">Password</label><br>
+            <input type="password" class="form-control" [(ngModel)]="password" required />
+        </div>
+        <pre></pre>
+        <button mat-fab color="accent"  (click)="login()">To log in</button><br><br>
+        <a  routerLink="/register"  >No account?</a>
 </div>

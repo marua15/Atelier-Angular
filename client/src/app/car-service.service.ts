@@ -7,16 +7,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CarServiceService {
-  editCar(id_car: number) {
-    throw new Error('Method not implemented.');
-  }
-
+  private readonly headers = new HttpHeaders()
+    .set('Content-Type', 'application/json')
+    .set('Authorization', 'Bearer ' + localStorage.getItem('jwt'));
+  getCarById(id_car: any) {
+    console.log(this.url + '/car/' + id_car);
+    return this.http.get(this.url + '/car/' + id_car, {headers:this.headers});
+ }
   // url principal 
   url:string = "http://127.0.0.1:5000";
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
 
   constructor(private http:HttpClient) { }
 
@@ -27,26 +27,25 @@ export class CarServiceService {
 
     console.log("car service" + car);
 
-    return this.http.post(this.url+"/savecar" , car , this.httpOptions );
-  }
+    return this.http.post(this.url+"/savecar" , car ,  {headers:this.headers} );
 
-
-  getAllcars():Observable<CarModule[]>{
-
-     return  this.http.get<CarModule[]>(this.url+"/cars" ,this.httpOptions );
-  }
-
-  getCar(id:number):Observable<CarModule>{
-    return this.http.get<CarModule>(this.url+"/car/"+id , this.httpOptions );
   }
   deleteCar(carId: number) {
-    const url =`${this.url}/deletecar/${carId}`;
-    return this.http.delete(url, this.httpOptions);
+    const url = `${this.url}/deletecar/${carId}`;
+    return this.http.delete(url,  {headers:this.headers});
   }
-  updateCar(car:CarModule):Observable<CarModule>{
-    return this.http.put<CarModule>(this.url+"/updatecar" , car , this.httpOptions );
+  getAllcars():Observable<CarModule[]>{
+
+     return  this.http.get<CarModule[]>(this.url+"/cars" , {headers:this.headers} );
   }
-    
+  
+  editCar(car : CarModule):Observable<CarModule> {
+    const url = `${this.url}/editcar/${car.id_car}`;
+    return this.http.put<CarModule>(url, car,  {headers:this.headers});
+  }
+  
+
+
 
 
 }
